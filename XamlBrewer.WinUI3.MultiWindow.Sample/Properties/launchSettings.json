@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XamlBrewer.WinUI3.MultiWindow.Sample (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "XamlBrewer.WinUI3.MultiWindow.Sample (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
