@@ -4,8 +4,11 @@ using XamlBrewer.WinUI3.MultiWindow.Sample.Services;
 
 namespace XamlBrewer.WinUI3.MultiWindow.Sample.ViewModels
 {
-    public class HomePageViewModel : ObservableRecipient, IRecipient<AssetsChangedMessage>
+    public partial class HomePageViewModel : ObservableRecipient, IRecipient<AssetsChangedMessage>
     {
+        [ObservableProperty]
+        private int wealth;
+
         public HomePageViewModel()
         {
             Messenger.Register(this);
@@ -13,7 +16,7 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample.ViewModels
 
         public void Receive(AssetsChangedMessage message)
         {
-            // throw new System.NotImplementedException();
+            Wealth += message.Value;
         }
     }
 }

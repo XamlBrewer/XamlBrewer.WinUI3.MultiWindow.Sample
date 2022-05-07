@@ -25,16 +25,19 @@
                    Opacity=".4" />
 
             <TextBlock FontSize="48"
-                       Foreground="Yellow" 
+                       Foreground="Yellow"
                        Visibility="{x:Bind ViewModel.IsExcited, Mode=OneWay}">Heigh-Ho</TextBlock>
 
             <RelativePanel VerticalAlignment="Top"
                            HorizontalAlignment="Right"
                            Margin="20">
-                <TextBox x:Name="DiamondsTextBox"
-                         Header="Diamonds" />
-                <Button RelativePanel.Below="DiamondsTextBox"
-                        Command="{x:Bind ViewModel.DiamondsFound}">Send</Button>
+                <NumberBox x:Name="DiamondsBox"
+                           Header="Diamonds"
+                           Value="{x:Bind ViewModel.Diamonds, Mode=TwoWay}"
+                           Margin="10" />
+                <Button RelativePanel.Below="DiamondsBox"
+                        Command="{x:Bind ViewModel.DiamondsFound}"
+                        Margin="10">Collect</Button>
             </RelativePanel>
 
             <!-- XAML Brewer Logo -->

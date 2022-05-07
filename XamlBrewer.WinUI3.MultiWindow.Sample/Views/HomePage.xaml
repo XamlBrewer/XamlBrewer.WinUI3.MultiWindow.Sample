@@ -17,5 +17,9 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
                 Margin="20">New</Button>
+        <TextBlock VerticalAlignment="Bottom"
+                   HorizontalAlignment="Right"
+                   Margin="20"
+                   Text="{x:Bind ViewModel.Wealth, Mode=OneWay}"></TextBlock>
     </Grid>
 </Page>
