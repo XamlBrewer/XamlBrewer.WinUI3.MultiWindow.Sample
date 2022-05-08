@@ -16,7 +16,7 @@
                VerticalAlignment="Center"
                HorizontalAlignment="Center"
                Stretch="UniformToFill"
-               Opacity=".4" />
+               Opacity=".6" />
 
         <!-- Main Beef -->
         <NavigationView x:Name="NavigationView"

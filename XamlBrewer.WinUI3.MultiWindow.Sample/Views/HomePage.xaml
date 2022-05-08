@@ -12,14 +12,23 @@
         <viewmodels:HomePageViewModel />
     </Page.DataContext>
 
-    <Grid>
-        <Button Click="Button_Click"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                Margin="20">New</Button>
-        <TextBlock VerticalAlignment="Bottom"
-                   HorizontalAlignment="Right"
-                   Margin="20"
-                   Text="{x:Bind ViewModel.Wealth, Mode=OneWay}"></TextBlock>
-    </Grid>
+    <RelativePanel VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="20">
+        <Button x:Name="LaunchButton"
+                Click="LaunchButton_Click"
+                Margin="10">New</Button>
+        <TextBlock x:Name="WealthBlockHeader"
+                   RelativePanel.Below="LaunchButton"
+                   Text="Wealth:"
+                   Margin="10"></TextBlock>
+        <TextBlock x:Name="WealthBlock"
+                   RelativePanel.RightOf="WealthBlockHeader"
+                   RelativePanel.AlignVerticalCenterWith="WealthBlockHeader"
+                   Text="{x:Bind ViewModel.Wealth, Mode=OneWay}"
+                   Margin="10"></TextBlock>
+        <Button RelativePanel.Below="WealthBlockHeader"
+                Click="RaiseButton_Click"
+                Margin="10">On Top</Button>
+    </RelativePanel>
 </Page>

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System;
+using WinUIEx;
 using XamlBrewer.WinUI3.MultiWindow.Sample.Services;
 using XamlBrewer.WinUI3.MultiWindow.Sample.ViewModels;
 
@@ -12,7 +13,7 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample.Views
     {
         public DetailWindow()
         {
-            Title = "XAML Brewer WinUI 3 MultiWindow Sample - Detail";
+            Title = "Detail Window";
 
             InitializeComponent();
             Root.ActualThemeChanged += Root_ActualThemeChanged;
@@ -24,6 +25,14 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample.Views
             {
                 Root.RequestedTheme = m.Value;
             });
+
+            messenger.Register<RaiseMessage>(this, (r, m) =>
+            {
+                this.SetForegroundWindow();
+            });
+
+            // Don't forget!
+            Closed += (sender, e) => { messenger.UnregisterAll(this); };
 
             var i = new Random();
             BackgroundImage.Source = new BitmapImage(new Uri($"ms-appx:///assets/{i.Next(1,5)}.jpg"));
