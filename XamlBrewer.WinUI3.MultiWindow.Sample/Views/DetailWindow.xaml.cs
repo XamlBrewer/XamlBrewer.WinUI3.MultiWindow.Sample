@@ -21,7 +21,7 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample.Views
 
             var messenger = Ioc.Default.GetService<IMessenger>();
 
-            messenger.Register<ThemeChangedMessage>(this, (r,m) =>
+            messenger.Register<ThemeChangedMessage>(this, (r, m) =>
             {
                 Root.RequestedTheme = m.Value;
             });
@@ -35,7 +35,7 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample.Views
             Closed += (sender, e) => { messenger.UnregisterAll(this); };
 
             var i = new Random();
-            BackgroundImage.Source = new BitmapImage(new Uri($"ms-appx:///assets/{i.Next(1,5)}.jpg"));
+            BackgroundImage.Source = new BitmapImage(new Uri($"ms-appx:///assets/{i.Next(1, 5)}.jpg"));
         }
 
         private DetailPageViewModel ViewModel => Page.DataContext as DetailPageViewModel;
