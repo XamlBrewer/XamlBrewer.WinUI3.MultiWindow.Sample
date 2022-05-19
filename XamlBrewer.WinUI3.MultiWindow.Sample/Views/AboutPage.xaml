@@ -17,7 +17,6 @@
             <Run>* Opening multiple windows</Run><LineBreak />
             <Run>* Messaging using MVVM Toolkit and Dependency Injection</Run><LineBreak />
             <Run>* Controlling window properties using WinUIEx</Run><LineBreak />
-            <Run>* ...</Run><LineBreak />
         </TextBlock>
     </Grid>
 </Page>
