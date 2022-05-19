@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.UI.Xaml;
+using System;
 using XamlBrewer.WinUI3.MultiWindow.Sample.Services;
 
 namespace XamlBrewer.WinUI3.MultiWindow.Sample
@@ -15,6 +16,17 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample
 
             (Application.Current as App).EnsureSettings();
             ApplyTheme();
+
+            var messenger = Ioc.Default.GetService<IMessenger>();
+
+            messenger.Register<AssetsChangedMessage>(this, (r, m) =>
+            {
+                BackgroundImage.Play();
+
+                var timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(2.55) };
+                timer.Tick += (s, e) => { BackgroundImage.Stop(); timer.Stop(); };
+                timer.Start();
+            });
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)

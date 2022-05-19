@@ -21,15 +21,15 @@ namespace XamlBrewer.WinUI3.MultiWindow.Sample
 
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
+            Ioc.Default.ConfigureServices
+            (new ServiceCollection()
+                .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
+                .BuildServiceProvider()
+            );
+
             shell = new Shell();
             shell.Activate();
             MainRoot = shell.Content as FrameworkElement;
-
-            Ioc.Default.ConfigureServices
-                (new ServiceCollection()
-                    .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
-                    .BuildServiceProvider()
-                );
         }
     }
 }

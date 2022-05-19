@@ -16,9 +16,12 @@
     <None Remove="Assets\2.jpg" />
     <None Remove="Assets\3.jpg" />
     <None Remove="Assets\4.jpg" />
+    <None Remove="Assets\5.jpg" />
+    <None Remove="Assets\6.jpg" />
+    <None Remove="Assets\7.jpg" />
     <None Remove="Assets\About.png" />
     <None Remove="Assets\Home.png" />
-    <None Remove="Assets\mine.jpg" />
+    <None Remove="Assets\mine.gif" />
     <None Remove="Views\AboutPage.xaml" />
     <None Remove="Views\DetailWindow.xaml" />
     <None Remove="Views\HomePage.xaml" />

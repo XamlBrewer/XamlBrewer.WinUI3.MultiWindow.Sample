@@ -1,22 +1,26 @@
-﻿<Window
-    x:Class="XamlBrewer.WinUI3.MultiWindow.Sample.Shell"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:XamlBrewer.WinUI3.MultiWindow.Sample"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+﻿<Window x:Class="XamlBrewer.WinUI3.MultiWindow.Sample.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:XamlBrewer.WinUI3.MultiWindow.Sample"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
 
     <Grid x:Name="Root"
           Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
           VerticalAlignment="Stretch"
           HorizontalAlignment="Stretch">
 
-        <Image Source="\Assets\mine.jpg"
-               VerticalAlignment="Center"
+        <Image VerticalAlignment="Center"
                HorizontalAlignment="Center"
                Stretch="UniformToFill"
-               Opacity=".6" />
+               Opacity=".6">
+            <Image.Source>
+                <BitmapImage x:Name="BackgroundImage"
+                             UriSource="\Assets\mine.gif"
+                             AutoPlay="False" />
+            </Image.Source>
+        </Image>
 
         <!-- Main Beef -->
         <NavigationView x:Name="NavigationView"
